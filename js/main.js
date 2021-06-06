@@ -4,14 +4,14 @@ const MESSAGES = [
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
+  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 const NAMES = [
   'Влад', 'Олег', 'Настя', 'Лена', 'Матвей', 'Крис',
-]
+];
 
 const getRandomInt = (min, max) => {
-  let rand = min + Math.random() * (max + 1 - min);
+  const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 };
 
@@ -32,6 +32,7 @@ const getMessage = () => {
   const messagesCopy = [...MESSAGES];
   const count = getRandomInt(1, 2);
   const messages = [];
+  // eslint-disable-next-line id-length
   for (let i = 0; i < count; i++) {
     const index = getRandomInt(0, messagesCopy.length - 1);
     const message = messagesCopy[index];
@@ -43,6 +44,7 @@ const getMessage = () => {
 
 const getComments = (number) => {
   const comments = [];
+  // eslint-disable-next-line id-length
   for (let i = 0; i < number; i++) {
     const authorIndex = getRandomInt(0, 5);
     const comment = {
@@ -60,7 +62,7 @@ const getPhotos = (number) => {
   const photos = [];
   // eslint-disable-next-line id-length
   for (let i = 0; i < number; i++) {
-    const index = i+1
+    const index = i+1;
     const photoInfo = {
       id: index,
       url: `photos/${index}.jpg`,
@@ -74,4 +76,5 @@ const getPhotos = (number) => {
 };
 
 getPhotos(25);
+// eslint-disable-next-line no-console
 console.log(getPhotos(25));
